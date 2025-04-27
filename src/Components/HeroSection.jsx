@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // ⬅ import useState
+import React, { useRef, useEffect, useState } from 'react'; // ⬅ import useState
 import './HeroSection.css';
 import logo from '../Assets/Screenshot 2024-12-03 104046.png'
 import pic from '../Assets/SPCCRFT LANDSCAPE.zip - 18(1)(1).png'
@@ -13,6 +13,31 @@ const HeroSection = () => {
     const closeMenu = () => {
         setMenuOpen(false);
     };
+
+    const imageRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            {
+                threshold: 0.1, // You can adjust how much of the image needs to be visible
+            }
+        );
+
+        if (imageRef.current) {
+            observer.observe(imageRef.current);
+        }
+
+        return () => {
+            if (imageRef.current) {
+                observer.unobserve(imageRef.current);
+            }
+        };
+    }, []);
+
 
     return (
         <div className="hero">
@@ -39,7 +64,7 @@ const HeroSection = () => {
                             clean & user-friendly experiences, I am a passionate about building <br />
                             excellent software that improves the lives of those around me.</p>
                     </div>
-                    <img src={pic} alt='pic_hero' className='pichero' />
+                    <img ref={imageRef} src={pic} alt='pic_hero' className={`pichero ${isVisible ? 'fade-in' : ''}`} />
                 </div>
             </div>
         </div>
