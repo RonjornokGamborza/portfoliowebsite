@@ -1,0 +1,145 @@
+.hero {
+    background-color: #444;
+    border: 10px solid gold;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    height: 50px;
+}
+
+/* New nav links styles */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: gold;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Details Section */
+.details {
+    padding: 50px 20px;
+    color: white;
+}
+
+.details-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.text {
+    max-width: 600px;
+}
+
+.text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: gold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #333;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        border-radius: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .details-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text h1 {
+        font-size: 36px;
+    }
+
+    .text p {
+        font-size: 16px;
+    }
+
+    .pichero {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .text h1 {
+        font-size: 28px;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+
+    .pichero {
+        width: 90%;
+    }
+
+    .logo {
+        height: 40px;
+    }
+}

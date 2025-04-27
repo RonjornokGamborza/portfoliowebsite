@@ -1,0 +1,126 @@
+.about-me-section {
+    background-color: #302f2f;
+    display: flex;
+    justify-content: center;
+    /* ✅ centers image + text horizontally */
+    align-items: center;
+    gap: 80px;
+    padding: 80px;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    overflow: hidden;
+    min-height: 107vh;
+    text-align: center;
+    /* ✅ centers text horizontally inside text blocks */
+}
+
+/* Image styling */
+.pic {
+    max-width: 853px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    flex-shrink: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text container */
+.headers {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    /* ✅ centers content inside .headers */
+    justify-content: center;
+    text-align: center;
+    /* ✅ makes sure text is centered */
+}
+
+/* Headings */
+.headers h1 {
+    font-size: 90px;
+    color: gold;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/* Paragraph */
+.headers p {
+    font-size: 40px;
+    line-height: 1.6;
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    word-wrap: break-word;
+    margin-bottom: 80px;
+}
+
+/* Skills section */
+.skills {
+    font-size: 40px;
+    line-height: 1.6;
+    color: white;
+    font-family: sans-serif;
+    word-wrap: break-word;
+}
+
+/* 🔁 Responsive Styling */
+@media (max-width: 1024px) {
+    .about-me-section {
+        flex-direction: column;
+        padding: 60px 40px;
+    }
+
+    .headers {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .headers h1 {
+        font-size: 50px;
+    }
+
+    .headers p,
+    .skills {
+        font-size: 22px;
+        text-align: center;
+        /* ✅ Center the paragraph text */
+    }
+}
+
+@media (max-width: 600px) {
+    .about-me-section {
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .headers h1 {
+        font-size: 40px;
+    }
+
+    .headers p,
+    .skills {
+        font-size: 18px;
+        text-align: center;
+        /* ✅ Ensure center text on mobile too */
+    }
+
+    .pic {
+        max-width: 90%;
+    }
+}
